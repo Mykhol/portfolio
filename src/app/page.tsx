@@ -159,14 +159,14 @@ export default function Page() {
           </a>
         </div>
       </div> */}
-      <div className="prose prose-neutral dark:prose-invert">
+      {/* <div className="prose prose-neutral dark:prose-invert">
         <p>
           I've worked with and advised companies on{' '}
           <Link href="/blog/developer-marketing">developer marketing</Link>,{' '}
           <Link href="/blog/devrel-at-vercel">developer relations</Link>,
           building open-source communities, product-led growth, and more.
         </p>
-      </div>
+      </div> */}
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
         {/* <li>
           <a
