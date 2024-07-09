@@ -10,7 +10,7 @@ export default function Page() {
         Hey, I'm Michael 👋
       </h1>
       <div className='flex gap-4'>
-        <div className="relative mb-4 w-full h-60">
+        <div className="relative mb-4 aspect-square h-[300px]">
           <Image
             alt="A headshot of me"
             src={"/headshot.jpg"}
