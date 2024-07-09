@@ -2,17 +2,11 @@ import Link from 'next/link';
 
 const navItems = {
   '/': {
-    name: 'home',
+    name: 'home 🏠',
   },
-  // '/work': {
-  //   name: 'work',
-  // },
-  // '/blog': {
-  //   name: 'blog',
-  // },
-  // '/guestbook': {
-  //   name: 'guestbook',
-  // },
+  '/blog': {
+    name: 'thoughts ☁️',
+  },
 };
 
 export function Navbar() {
