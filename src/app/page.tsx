@@ -21,7 +21,7 @@ export default function Page() {
         </div>
       </div>
       <p className="prose prose-neutral dark:prose-invert">
-        {`I'm a software engineer, student, tinkerer and optimist. I currently work at `}<Link href={'https://generatezero.com'} className='underline font-bold'>Generate Zero</Link>{` as a senior software engineer, we create tools for businesses to build a better picture of their environmental impact and work to reduce their emissions. I'm also in my penultimate year of an engineering honours degree in computer systems engineering at the University of Auckland.`}
+        {`I'm a software engineer, student, tinkerer and optimist. I currently work at `}<Link href={'https://generatezero.com'} className='underline font-bold'>Generate Zero</Link>{` as a senior software engineer, we create tools for business to measure and reduce their emissions. I'm also in my penultimate year of an engineering honours degree in computer systems engineering at the University of Auckland.`}
       </p>
       
 
