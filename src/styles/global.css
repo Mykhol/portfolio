@@ -12,12 +12,12 @@
 }
 
 .dot-grid {
-  background-image: radial-gradient(circle, rgb(0 0 0 / 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgb(0 0 0 / 0.25) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .dark .dot-grid {
-  background-image: radial-gradient(circle, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgb(255 255 255 / 0.15) 1px, transparent 1px);
 }
 
 @keyframes blob {
@@ -36,4 +36,14 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+::selection {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.dark ::selection {
+  background-color: #34d399;
+  color: #0a0a0a;
 }
