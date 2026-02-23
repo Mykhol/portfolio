@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title = 'Michael Howell', description = 'Software engineer, student, tinkerer' } = Astro.props;
+const { title = 'Michael Howell', description = 'Software engineer, tinkerer' } = Astro.props;
 const pageTitle = title === 'Michael Howell' ? title : `${title} | Michael Howell`;
 ---
 
@@ -25,17 +25,55 @@ const pageTitle = title === 'Michael Howell' ? title : `${title} | Michael Howel
     <meta name="twitter:description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      (function () {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-white text-neutral-900 antialiased">
+  <body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 antialiased relative min-h-screen">
+    <div class="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <div class="absolute inset-0 dot-grid"></div>
+      <div class="absolute w-[80%] h-[80%] rounded-full bg-blue-200/50 dark:bg-blue-900/25 blur-[180px] animate-blob" data-blob></div>
+      <div class="absolute w-[75%] h-[75%] rounded-full bg-violet-200/40 dark:bg-violet-900/20 blur-[180px] animate-blob animation-delay-2000" data-blob></div>
+      <div class="absolute w-[85%] h-[65%] rounded-full bg-sky-200/40 dark:bg-sky-900/20 blur-[180px] animate-blob animation-delay-4000" data-blob></div>
+      <script is:inline>
+        document.querySelectorAll('[data-blob]').forEach(function (el) {
+          el.style.top = (Math.random() * 80 - 30) + '%';
+          el.style.left = (Math.random() * 80 - 25) + '%';
+        });
+      </script>
+    </div>
     <nav class="max-w-3xl mx-auto px-6 py-8 flex justify-between items-center">
-      <a href="/" class="text-sm font-medium text-neutral-900 hover:text-accent transition-colors">michael howell</a>
-      <a href="/blog" class="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">blog</a>
+      <a href="/" class="text-sm font-medium text-neutral-900 dark:text-neutral-100 hover:text-accent transition-colors">Michael Howell</a>
+      <div class="flex items-center gap-4">
+        <a href="/blog" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">blog</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+          <!-- Sun icon (visible in dark mode) -->
+          <svg class="hidden dark:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <!-- Moon icon (visible in light mode) -->
+          <svg class="block dark:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </button>
+      </div>
     </nav>
     <main class="max-w-3xl mx-auto px-6 pb-16">
       <slot />
     </main>
+    <script>
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    </script>
   </body>
 </html>

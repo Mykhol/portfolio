@@ -16,10 +16,10 @@ const { Content } = await render(post);
 
 <Base title={post.data.title} description={post.data.summary}>
   <article>
-    <a href="/blog" class="text-sm text-neutral-400 hover:text-neutral-600 transition-colors mb-6 inline-block">&larr; Back to blog</a>
+    <a href="/blog" class="text-sm text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors mb-6 inline-block">&larr; Back to blog</a>
     <h1 class="text-3xl font-bold tracking-tight mt-2">{post.data.title}</h1>
-    <p class="text-sm text-neutral-400 mt-2">{post.data.date.toLocaleDateString('en-NZ', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-    <div class="prose prose-neutral mt-8 max-w-none">
+    <p class="text-sm text-neutral-400 dark:text-neutral-500 mt-2">{post.data.date.toLocaleDateString('en-NZ', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    <div class="prose prose-neutral dark:prose-invert mt-8 max-w-none">
       <Content />
     </div>
   </article>
