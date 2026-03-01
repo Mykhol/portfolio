@@ -14,7 +14,7 @@ const latestPost = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
     <div class="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-8 border border-neutral-100 dark:border-neutral-800">
       <h1 class="text-3xl font-bold tracking-tight">Michael Howell</h1>
       <p class="mt-2 text-neutral-500 dark:text-neutral-400 text-lg">Software engineer, tinkerer</p>
-      <p class="mt-1 text-sm text-neutral-400 dark:text-neutral-500">Sydney, Australia</p>
+      <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-500">Sydney, Australia</p>
       <p class="mt-4 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">Computer systems engineering grad from the University of Auckland, now based in Sydney. I thrive in startup culture and love building things that matter, especially where cleantech, fintech, and healthtech meet great engineering. Currently obsessed with using AI to supercharge developer productivity. Also a bit of a hardware nerd, fascinated by how the physical stuff shapes the digital world.</p>
     </div>
 
@@ -24,7 +24,7 @@ const latestPost = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
         <Image src={headshot} alt="Photo of Michael Howell" class="w-full h-full object-cover" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 50vw" format="webp" loading="eager" />
       </div>
       <div class="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 border border-neutral-100 dark:border-neutral-800">
-        <p class="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-3">Links</p>
+        <p class="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500 mb-3">Links</p>
         <div class="flex gap-4">
           <a href="https://github.com/Mykhol" target="_blank" rel="noopener" class="text-accent hover:underline transition-colors text-sm">GitHub &nearr;</a>
           <a href="https://linkedin.com/in/mh-michael-howell" target="_blank" rel="noopener" class="text-accent hover:underline transition-colors text-sm">LinkedIn &nearr;</a>
@@ -34,27 +34,27 @@ const latestPost = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
 
     <!-- Currently -->
     <div class="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 border border-neutral-100 dark:border-neutral-800">
-      <p class="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-2">Currently</p>
+      <p class="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500 mb-2">Currently</p>
       <p class="text-sm text-neutral-700 dark:text-neutral-300">Senior software engineer at <a href="https://www.heidihealth.com" class="text-accent hover:underline" target="_blank" rel="noopener">Heidi</a></p>
     </div>
 
     <!-- Previously -->
     <div class="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 border border-neutral-100 dark:border-neutral-800">
-      <p class="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-2">Previously</p>
+      <p class="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500 mb-2">Previously</p>
       <p class="text-sm text-neutral-700 dark:text-neutral-300">Principal engineer at <a href="https://generatezero.co.nz" class="text-accent hover:underline" target="_blank" rel="noopener">Generate Zero</a>, leading the engineering team and helping NZ's biggest businesses measure and reduce their carbon emissions.</p>
     </div>
 
     <!-- Latest Post (spans 2 columns) -->
     {latestPost ? (
       <a href={`/blog/${latestPost.id}`} class="md:col-span-2 bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 border border-neutral-100 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors block">
-        <p class="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-2">Latest writing</p>
+        <p class="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500 mb-2">Latest writing</p>
         <p class="text-sm font-medium text-neutral-900 dark:text-neutral-100">{latestPost.data.title}</p>
-        <p class="text-xs text-neutral-400 dark:text-neutral-500 mt-1">{latestPost.data.date.toLocaleDateString('en-NZ', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <p class="text-xs text-neutral-500 dark:text-neutral-500 mt-1">{latestPost.data.date.toLocaleDateString('en-NZ', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
       </a>
     ) : (
       <div class="md:col-span-2 bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 border border-neutral-100 dark:border-neutral-800">
-        <p class="text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500 mb-2">Latest writing</p>
-        <p class="text-sm text-neutral-400 dark:text-neutral-500 italic">Coming soon</p>
+        <p class="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500 mb-2">Latest writing</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-500 italic">Coming soon</p>
       </div>
     )}
   </div>
