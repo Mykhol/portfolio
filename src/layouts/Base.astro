@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '@fontsource-variable/space-grotesk';
 
 interface Props {
   title?: string;
@@ -27,9 +28,6 @@ const pageTitle = title === 'Michael Howell' ? title : `${title} | Michael Howel
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site).href} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script is:inline>
