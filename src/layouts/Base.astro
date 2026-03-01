@@ -30,12 +30,15 @@ const pageTitle = title === 'Michael Howell' ? title : `${title} | Michael Howel
     <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site).href} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     <script is:inline>
       (function () {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        }
+        var theme = localStorage.getItem('theme');
+        var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) document.documentElement.classList.add('dark');
+        document.querySelector('meta[name="theme-color"][media*="light"]').content = isDark ? '#0a0a0a' : '#ffffff';
+        document.querySelector('meta[name="theme-color"][media*="dark"]').content = isDark ? '#0a0a0a' : '#ffffff';
       })();
     </script>
   </head>
@@ -75,6 +78,8 @@ const pageTitle = title === 'Michael Howell' ? title : `${title} | Michael Howel
       document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        const color = isDark ? '#0a0a0a' : '#ffffff';
+        document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute('content', color));
       });
     </script>
   </body>
